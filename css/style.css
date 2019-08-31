@@ -31,6 +31,12 @@ nav li {
     float: left;
     margin-top: 10px;
 }
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
 nav a {
     width: 120px;
     color: white;
@@ -47,13 +53,18 @@ nav a {
 a:hover{
     background: rgb(243, 72, 72);
 }
-.location {
-    float: left;
-    margin: 20px;
-    padding: 5px;
-}
+
 h1, h2 {
     text-align: center;
+}
+
+.fish {
+    background: rgb(102, 202, 219);
+    margin: 0;
+    border-top: 2px solid #c5bbbb
+}
+.salmonPic {
+    padding: 5px;
 }
 .salmonPic img {
     display: block;
@@ -61,18 +72,36 @@ h1, h2 {
 }
 
 footer {
-    clear: both;
     background: rgb(22, 92, 172);
     color: white;
     font-weight: bold;
     text-align: center;
     max-width: 100%;
     padding: 1.2%;
-    border-top: 2px solid silver;
     margin-top: 10px;
 }
 
 .page_wrap{
     min-height: 92%;
-    margin-bottom: -10px;
+}
+
+table {
+    width: 850px;
+    height: 450px;
+    margin: 10px;
+    padding: 2px;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 1.1em;
+    background-color: rgb(215, 216, 216);
+    border-radius: 15px;
+}
+
+th, td {
+    border: 2px solid white;
+    border-radius: 10px;
+}
+th:hover, td:hover {
+    background: #817e7e;
+    color: white;
 }
