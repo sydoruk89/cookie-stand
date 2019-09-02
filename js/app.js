@@ -128,7 +128,12 @@ function handleFormSubmit(event) {
   new Location (name, minCustomer, maxCustomer, averageCookies);
   console.log(name, minCustomer, maxCustomer, averageCookies);
 
-  table.innerHTML = '';
+  // clear table content
+
+  while(table.firstChild){
+    table.removeChild(table.firstChild);
+  }
+
   createHeader();
   for(var i = 0; i < Location.allLocations.length; i++){
     Location.allLocations[i].render();
