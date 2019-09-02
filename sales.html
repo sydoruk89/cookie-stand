@@ -9,29 +9,39 @@
     <body>
         <div class="page_wrap">  
             <header>
-                    <nav>
-                        <ul class="clearfix">
-                            <li>
-                            <a href="./index.html">Home</a>
-                            </li>
-                            <li>
-                            <a href="./sales.html">Sales</a>
-                            </li>
-                        </ul>
-                    </nav> 
+                <nav>
+                    <ul class="clearfix">
+                        <li>
+                        <a href="./index.html">Home</a>
+                        </li>
+                        <li>
+                        <a href="./sales.html">Sales</a>
+                        </li>
+                    </ul>
+                </nav> 
             </header>
-            <main>
-                <div class="fish">
-                    <div class='salmonPic'>
-                    <h1>Pat's Salmon Cookies</h1>
-                    <img src='img/salmon.png' width=600px alt='fish logo'>
-                    </div> 
-                </div>
-                <h2>Daily sales</h2>
-                <table>
-                    <tbody id="table"></tbody>
-                </table>
-            </main>
+                <main>
+                    <div class="fish">
+                        <div class='salmonPic'>
+                            <h1>Pat's Salmon Cookies</h1>
+                            <img src='img/salmon.png' width=600px alt='fish logo'>
+                        </div> 
+                    </div>
+                    <form id="form">
+                        <fieldset>
+                            <legend>Add New Store</legend><br>
+                            <input name="name" type="text" placeholder="Enter a new store name here"><br>
+                            <input name="minCustomer" type="number" placeholder="Enter min customers here"><br>
+                            <input name="maxCustomer" type="number" placeholder="Enter max customers here"><br>
+                            <input name="averageCookies" type="float" placeholder="Enter avg cookie sales here"><br>
+                            <input name="submit" type="submit" value="submit"> 
+                        </fieldset>
+                    </form>
+                    <h2>Daily sales</h2>
+                    <table>
+                        <tbody id="table"></tbody>
+                    </table>
+                </main>
         </div>
         <footer>Pat's Salmon Cookies &copy; 2019</footer>
         <script type="text/javascript" src="js/app.js"></script>
