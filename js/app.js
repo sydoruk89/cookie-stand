@@ -67,18 +67,6 @@ function createHeader() {
   tableRow.appendChild(lastColumn);
 }
 
-var sum = 0;
-var totalHourlyArr = [];
-function hourlyCalc(){
-  for (var x = 0; x < time.length; x++) {
-    sum = 0;
-    for (var k = 0; k < Location.allLocations.length; k++) {
-      sum += Location.allLocations[k].cookiesPerHour[x];
-    }
-    totalHourlyArr.push(sum);
-    console.log(totalHourlyArr[x]);
-  }
-}
 
 function createFooter() {
   var tableRowTotal = document.createElement('tr');
@@ -87,15 +75,17 @@ function createFooter() {
   table.appendChild(tableRowTotal);
   tableRowTotal.appendChild(firstColumnTotal);
 
-
-  for (var i = 0; i < time.length; i++) {
-    var tableTdTotal = document.createElement('td');
-    tableTdTotal.textContent = totalHourlyArr[i];
-    tableRowTotal.appendChild(tableTdTotal);
-  }
   var total = 0;
-  for (var h = 0; h < Location.allLocations.length; h++) {
-    total += Location.allLocations[h].totalCookies;
+  for (var i = 0; i < time.length; i++) {
+    var hourlyTotal = 0;
+    for(var k = 0; k < Location.allLocations.length; k++){
+      hourlyTotal += Location.allLocations[k].cookiesPerHour[i];
+    }
+    total += hourlyTotal;
+
+    var tableTdTotal = document.createElement('td');
+    tableTdTotal.textContent = hourlyTotal;
+    tableRowTotal.appendChild(tableTdTotal);
   }
   var lastTd = document.createElement('td');
   lastTd.textContent = total;
@@ -112,7 +102,6 @@ createHeader();
 for(var i = 0; i < Location.allLocations.length; i++){
   Location.allLocations[i].render();
 }
-hourlyCalc();
 createFooter();
 
 // creating the form
@@ -126,19 +115,20 @@ function handleFormSubmit(event) {
   var maxCustomer = parseInt(event.target.maxCustomer.value);
   var averageCookies = event.target.averageCookies.value;
   new Location (name, minCustomer, maxCustomer, averageCookies);
-  console.log(name, minCustomer, maxCustomer, averageCookies);
+  console.log('new location', name, minCustomer, maxCustomer, averageCookies);
 
-  // clear table content
+  // clearing table content
 
   while(table.firstChild){
     table.removeChild(table.firstChild);
   }
+  console.log ('children of tbody cleared', table.firstChild);
 
   createHeader();
   for(var i = 0; i < Location.allLocations.length; i++){
     Location.allLocations[i].render();
   }
-  hourlyCalc();
+
   createFooter();
 }
 
