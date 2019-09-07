@@ -1,35 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <title>Salmon cookies</title>
-        <link href="css/reset.css" type="text/css" rel="stylesheet" />
-        <link href="css/style.css" type="text/css" rel="stylesheet" />
+      <meta charset="utf-8">
+      <title>Salmon cookies</title>
+      <link href="css/reset.css" type="text/css" rel="stylesheet" />
+      <link href="css/style.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
-        <div class="page_wrap">
-            <header>
-                    <nav>
-                            <ul>
-                                <li>
-                                <a href="./index.html">Home</a>
-                                </li>
-                                <li>
-                                <a href="./sales.html">Sales</a>
-                                </li>
-                            </ul>
-                    </nav> 
-            </header>
-                    <main>
-                        <div class="fish">
-                            <div class='salmonPic'>
-                            <h1>Pat's Salmon Cookies</h1>
-                            <img src='img/salmon.png' width=600px alt='fish logo'>
-                            </div> 
-                        </div>
-                    </main>
+      <header>
+        <img id='logo'src='img/salmon.png' alt='fish logo'>
+        <nav>
+          <ul>
+            <li><a href="./index.html">HOME</a></li>
+            <li><a href="./sales.html">SALES</a></li>
+            <li><a href="#">OUR STORY</a></li>
+            <li><a href="#">PRODUCTS</a></li>
+          </ul>
+        </nav>
+        <p id="company-name">Pat's Salmon Cookies</p>
+      </header>
+      <main>
+        <section>
+          <div class="main-pic">
+            <img id='family'src='img/family.jpg' alt='family'>
+              <div class="main-text">
+                <p>FAMILY OWNED COMPANY</p>
+              </div>
+            </div>
+            <h2 class="our-story">Our story "A cookie with a soul"</h2>
+          <p class="story">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+          </p>
+        </section>
+        <section>
+          <div class="products">
+            <h2 id="our-product">TRY OUR OTHER PRODUCTS</h2>
+            <img class='cutter' src='img/cutter.jpeg' alt='cutter'>
+            <img class='fish' src='img/fish.jpg' alt='fish'>
+            <img class='frosted-cookie' src='img/frosted-cookie.jpg' alt='frosted-cookie'>
+            <img class='shirt' src='img/shirt.jpg' alt='shirt'>
+            <h2>EVENTS</h2>
+            <div class="card">
+              <div class="header">
+                <p>October 1<br> 2019</p>
+              </div>
+              <div class="container">
+                <p>Salmon days in Issaquah</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="header">
+                <p>October 3<br> 2019</p>
+              </div>
+              <div class="container">
+                <p>Salmon days in Bothell</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="header">
+                <p>October 5<br>2019</p>
+              </div>
+              <div class="container">
+                <p>Salmon days in Edmonds</p>
+              </div>
+            </div>
+            <div class="address">
+              <h2>Contact Info</h2>
+              <p>Address: 343 E Thomas Street, Seattle, WA 98122</p>
+              <p>Hours:6AM-8PM, Mon-Fri</p>
+              <p>Contact: 206-123-4567 or info@salmoncookies.com</p>
+              <img class='chinook' src='img/chinook.jpg' alt='chinook'>
+            </div>
+          </div>
+        </section>
+        <div class="locations">
+          <h2>OUR LOCATION</h2>
+          <div class="first">
+            <p> 1st and Pike</p>
+            <iframe width="300" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=1st%20and%20pike&t=&z=13&ie=UTF8&iwloc=&output=embed">
+            </iframe>
+          </div>
+          <div class="seaTac">
+            <p> SeaTac Airport</p>
+            <iframe width="300" height="300"  src="https://maps.google.com/maps?q=Sea-Tac%20airport&t=&z=13&ie=UTF8&iwloc=&output=embed">  </iframe>
+            </iframe>
+          </div>
+          <div class="center">
+            <p> Seattle Center</p>
+            <iframe width="300" height="300" src="https://maps.google.com/maps?q=1st%20and%20pike&t=&z=13&ie=UTF8&iwloc=&output=embed">
+            </iframe>
+          </div>
+          <div class="capitol">
+            <p> Capitol Hill</p>
+            <iframe width="300" height="300" src="https://maps.google.com/maps?q=capitol%20hill%20e%20thomas%20street&t=&z=13&ie=UTF8&iwloc=&output=embed">
+            </iframe>
+          </div>
+          <div class="alki">
+            <p> Alki</p>
+            <iframe width="300" height="300"  src="https://maps.google.com/maps?q=Alki%20center&t=&z=13&ie=UTF8&iwloc=&output=embed">
+            </iframe>
+          </div>
         </div>
-        <footer>Pat's Salmon Cookies &copy; 2019</footer>
-        <script></script>
+      </main>
+      <footer>
+        <p>Pat's Salmon Cookies &copy; 2019</p>
+        </footer>
+      <script></script>
     </body>
 </html>
