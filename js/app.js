@@ -17,11 +17,14 @@ function Location(name, minCustomer, maxCustomer, averageCookies){
 }
 Location.allLocations = [];
 
+// calculate random customer per hour
+
 Location.prototype.randomCustPerHour = function() {
   return Math.floor(Math.random() *
     (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
 };
 
+// calculate random cookies per hour
 
 Location.prototype.avgCookiesPerHour = function() {
   for (var i = 0; i < time.length; i++) {
@@ -32,48 +35,48 @@ Location.prototype.avgCookiesPerHour = function() {
   }
 };
 
+// create table without header and footer
+
+
 Location.prototype.render = function() {
-  var tableRow = document.createElement('tr');
-  var tableData = document.createElement('td');
-  tableData.textContent = this.name;
-  tableRow.appendChild(tableData);
+
+  // create tr
+  var trEl = addElement('tr', false, table);
+  //create td
+  addElement('td', this.name, trEl);
+
   for (var i = 0; i < time.length; i++) {
-    var td = document.createElement('td');
-    td.textContent = this.cookiesPerHour[i];
-    tableRow.appendChild(td);
+    addElement('td', this.cookiesPerHour[i], trEl);
+
   }
 
-  table.appendChild(tableRow);
-  var tdTotal = document.createElement('td');
-  tdTotal.textContent = this.totalCookies;
-  tableRow.appendChild(tdTotal);
+  addElement('td', this.totalCookies, trEl);
+
 };
 
+// create header
 
 function createHeader() {
-  var tableRow = document.createElement('tr');
-  var firstColumn = document.createElement('th');
-  firstColumn.textContent = '';
-  tableRow.appendChild(firstColumn);
-  table.appendChild(tableRow);
+  var trEl = addElement('tr', false, table);
+
+  addElement('td', '', trEl);
+
 
   for (var i = 0; i < time.length; i++) {
-    var tableHead = document.createElement('th');
-    tableHead.textContent = time[i];
-    tableRow.appendChild(tableHead);
+    addElement('th', time[i], trEl);
+
   }
-  var lastColumn = document.createElement('th');
-  lastColumn.textContent = 'Total daily';
-  tableRow.appendChild(lastColumn);
+  addElement('th', 'Total daily', trEl);
+
 }
 
+// create footer
 
 function createFooter() {
-  var tableRowTotal = document.createElement('tr');
-  var firstColumnTotal = document.createElement('td');
-  firstColumnTotal.textContent = 'total';
-  table.appendChild(tableRowTotal);
-  tableRowTotal.appendChild(firstColumnTotal);
+  var trEl = addElement('tr', false, table);
+
+  addElement('td', 'total', trEl);
+
 
   var total = 0;
   for (var i = 0; i < time.length; i++) {
@@ -82,14 +85,11 @@ function createFooter() {
       hourlyTotal += Location.allLocations[k].cookiesPerHour[i];
     }
     total += hourlyTotal;
+    addElement('td', hourlyTotal, trEl);
 
-    var tableTdTotal = document.createElement('td');
-    tableTdTotal.textContent = hourlyTotal;
-    tableRowTotal.appendChild(tableTdTotal);
   }
-  var lastTd = document.createElement('td');
-  lastTd.textContent = total;
-  tableRowTotal.appendChild(lastTd);
+  addElement('td', total, trEl);
+
 }
 
 new Location ('1st & Pike', 23 , 65, 6.3);
@@ -97,6 +97,8 @@ new Location ('SeaTac Airport', 3, 24, 1.2);
 new Location ('Seattle Center', 11, 38, 3.7);
 new Location ('Capitol Hill', 20, 38, 2.3);
 new Location ('Alki', 2, 16, 4.6);
+
+// run functions
 
 createHeader();
 for(var i = 0; i < Location.allLocations.length; i++){
@@ -107,6 +109,21 @@ createFooter();
 // creating the form
 var formEl = document.getElementById('form');
 
+
+// when I call this, my element needs to be a string
+
+function addElement(element, content, parent){
+  var newElement = document.createElement(element);
+  if(content){
+    var newContent = document.createTextNode(content);
+    newElement.appendChild(newContent);
+  }
+
+  parent.appendChild(newElement);
+  return newElement;
+}
+
+// add listener
 
 function handleFormSubmit(event) {
   event.preventDefault();
@@ -123,6 +140,9 @@ function handleFormSubmit(event) {
     table.removeChild(table.firstChild);
   }
   console.log ('children of tbody cleared', table.firstChild);
+
+
+  // run functions with new content
 
   createHeader();
   for(var i = 0; i < Location.allLocations.length; i++){
