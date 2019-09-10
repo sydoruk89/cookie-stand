@@ -12,10 +12,11 @@ function Location(name, minCustomer, maxCustomer, averageCookies){
   this.totalCookies = 0;
   this.cookiesPerHour = [];
 
-  Location.allLocations.push(this);
+  allLocations.push(this);
   this.avgCookiesPerHour();
 }
-Location.allLocations = [];
+var allLocations = [];
+
 
 // calculate random customer per hour
 
@@ -81,15 +82,14 @@ function createFooter() {
   var total = 0;
   for (var i = 0; i < time.length; i++) {
     var hourlyTotal = 0;
-    for(var k = 0; k < Location.allLocations.length; k++){
-      hourlyTotal += Location.allLocations[k].cookiesPerHour[i];
+    for(var k = 0; k < allLocations.length; k++){
+      hourlyTotal += allLocations[k].cookiesPerHour[i];
     }
     total += hourlyTotal;
     addElement('td', hourlyTotal, trEl);
 
   }
   addElement('td', total, trEl);
-
 }
 
 new Location ('1st & Pike', 23 , 65, 6.3);
@@ -101,8 +101,8 @@ new Location ('Alki', 2, 16, 4.6);
 // run functions
 
 createHeader();
-for(var i = 0; i < Location.allLocations.length; i++){
-  Location.allLocations[i].render();
+for(var i = 0; i < allLocations.length; i++){
+  allLocations[i].render();
 }
 createFooter();
 
