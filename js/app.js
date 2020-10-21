@@ -145,7 +145,7 @@ function handleFormSubmit(event) {
   // run functions with new content
 
   createHeader();
-  for(var i = 0; i < Location.allLocations.length; i++){
+  for(var i = 0; i < allLocations.length; i++){
     Location.allLocations[i].render();
   }
 
