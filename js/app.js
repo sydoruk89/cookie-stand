@@ -146,7 +146,7 @@ function handleFormSubmit(event) {
 
   createHeader();
   for(var i = 0; i < allLocations.length; i++){
-    Location.allLocations[i].render();
+    allLocations[i].render();
   }
 
   createFooter();
